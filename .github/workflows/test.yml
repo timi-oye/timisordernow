@@ -1,0 +1,11 @@
+name: Push Event Workflow
+
+on: push 
+
+jobs:
+  unit-testing:
+    runs-on: ubuntu-latest 
+    
+    steps:      
+    - name : Run tests 
+      run : python tests.py

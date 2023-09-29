@@ -4,7 +4,7 @@ from pymongo import MongoClient
 from configparser import ConfigParser
 
 config = ConfigParser()
-config.read('.env')
+config.read('./.env')
 
 access_key = config['AWS']['access_key']
 secret_key = config['AWS']['secret_key']
@@ -68,8 +68,6 @@ def extract_from_orders():
     ordernow = db_client.ordernow
     orders = ordernow.orders
     return orders.find()
-
-
 
 def read_csv_from_lake(s3_path):
     df = pd.read_csv(s3_path, storage_options={

@@ -1,5 +1,5 @@
 import pandas as pd
-from helper import save_to_lake, extract_from_customers, extract_from_merchants, extract_from_orders
+from dags.helper import save_to_lake, extract_from_customers, extract_from_merchants, extract_from_orders
 
 def extract_customers_to_lake():
     '''task: extract and load customers documents from MongoDB to datalake'''
