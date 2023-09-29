@@ -15,5 +15,8 @@ jobs:
       run : sudo apt-get install software-properties-common &&  sudo apt-add-repository universe && sudo apt-get update && sudo apt-get install python3-pip
     - name : Install Packages
       run: pip install pymongo boto3 s3fs==0.4.2 pandas configparser
+    - name: 'Create env file'
+      run: |
+          echo "${{ secrets.ENV_FILE }}" > .env
     - name : Run tests 
       run : python tests.py
