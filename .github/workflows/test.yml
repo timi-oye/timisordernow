@@ -9,7 +9,11 @@ jobs:
     steps:      
     - name : Checkout code
       uses : actions/checkout@v2
+    - name: Run Updates
+      run: sudo apt update && sudo apt upgrade
+    - name : Install pip3
+      run : sudo apt-get install software-properties-common &&  sudo apt-add-repository universe && sudo apt-get update && sudo apt-get install python3-pip
     - name : Install Packages
-      run: pip install -r requirements.txt
+      run: pip install pymongo boto3 s3fs==0.4.2 pandas configparser
     - name : Run tests 
       run : python tests.py
